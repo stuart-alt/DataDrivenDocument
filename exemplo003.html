@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter, exit e update</title>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <br>dados > elementos DOM (Enter) -- Mais dados que elementos
+        <br>dados < elementos DOM (exit) -- Menos dados que elementos <br>dados = elementos DOM (update) -- Mesma
+            quantidade de dados e elementos
+    </div>
+
+    <script>
+        // Enter -- Adiciona os elementos na página
+        /*    d3.select('body').selectAll('p')
+                .data( [4, 8, 15, 16,23,42])
+                .enter().append('p')
+                .text(function(d) { return `Sou o número ${d}!` })
+        */
+        // Update -- apenas atualiza os elemtnos que já existem
+        /*    var p = d3.select('body').selectAll('p')
+                        .data( [ 1,2,3,4,5,6,7] )
+                        .text(String)
+        */
+        // Outra maneira de fazer para facilitar a manipulação
+        var myp = d3.select('body').selectAll('p')
+            .data([4, 2, 8, 4, 1, 2, 3, 7, 5, 2, 3])
+            .enter()
+            .append('p')
+            .text(function (d) { return `Sou o número ${d}` })
+
+        myp.style('color', 'red')
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter, exit e update</title>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+
+<body>
+    <div>
+
+    </div>
+
+    <script>
+        var mydata = [75, 56]
+
+        var canvas = d3.select('body')
+                        .append('svg')
+                        .attr('width', 1000)
+                        .attr('height', 500)
+                        .style('background', '#ccc')
+        
+        var circle = canvas.append('circle')
+                            .attr('cx', 100)
+                            .attr('cy', 100)
+                            .attr('r', 30)
+
+        var circle2 = canvas.append('circle')
+                            .attr('cx', 100)
+                            .attr('cy', 200)
+                            .attr('r', 30)
+
+        var circle3 = canvas.append('circle')
+                            .attr('cx', 200)
+                            .attr('cy', 300)
+                            .attr('r', 15)
+
+        d3.selectAll('circle')
+            .data(mydata)
+            .attr('r', function(d) { return d })
+                .exit() // Irá fazer com que o elemento que não tem dados (mydata) fique vermlho
+                .attr('fill', 'red')
+    </script>
+
+</body>
+
+</html>
